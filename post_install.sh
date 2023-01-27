@@ -39,8 +39,8 @@ FLUSH PRIVILEGES;
 _EOF_
 
 # Configure PhotoPrism​
-pkg add https://github.com/psa/libtensorflow1-freebsd-port/releases/download/1.15.5/libtensorflow1-1.15.5-FreeBSD-12.2-noAVX.pkg
-# maybe? pkg add https://github.com/psa/libtensorflow1-freebsd-port/releases/download/1.15.5-pre-release-0/libtensorflow1-1.15.5-FreeBSD-12.3-AVX.pkg
+# pkg add https://github.com/psa/libtensorflow1-freebsd-port/releases/download/1.15.5/libtensorflow1-1.15.5-FreeBSD-12.2-noAVX.pkg
+pkg add https://github.com/psa/libtensorflow1-freebsd-port/releases/download/1.15.5-pre-release-0/libtensorflow1-1.15.5-FreeBSD-12.3-AVX.pkg
 pkg add https://github.com/psa/photoprism-freebsd-port/releases/download/2022-11-18/photoprism-g20221118-FreeBSD-12.3-separatedTensorflow.pkg
 
 sysrc photoprism_enable="YES"
@@ -48,6 +48,8 @@ sysrc photoprism_assetspath="/var/db/photoprism/assets"
 sysrc photoprism_storagepath="/mnt/photos/"
 sysrc photoprism_defaultsyaml="/mnt/photos/options.yml"
 
+mkdir /mnt/photos
+chown -R photoprism:photoprism /mnt/photos
 cat >/mnt/photos/options.yml <<EOL
 AuthMode: public #[OPTIONAL]
 AssetsPath: /var/db/photoprism/assets
