@@ -45,12 +45,9 @@ FLUSH PRIVILEGES;
 _EOF_
 
 # Configure PhotoPrism​
-# pkg add https://github.com/psa/libtensorflow1-freebsd-port/releases/download/1.15.5/libtensorflow1-1.15.5-FreeBSD-12.2-noAVX.pkg
-pkg add https://github.com/psa/libtensorflow1-freebsd-port/releases/download/1.15.5-pre-release-0/libtensorflow1-1.15.5-FreeBSD-12.3-AVX.pkg
 pkg add https://github.com/psa/photoprism-freebsd-port/releases/download/2022-11-18/photoprism-g20221118-FreeBSD-12.3-separatedTensorflow.pkg
 
 sysrc photoprism_enable="YES"
-# sysrc photoprism_auth_mode="public"
 sysrc photoprism_assetspath="/var/db/photoprism/assets"
 sysrc photoprism_storagepath="/mnt/photos/"
 sysrc photoprism_defaultsyaml="/mnt/photos/options.yml"
@@ -71,6 +68,7 @@ DatabasePassword: ${DB_PASSWORD}
 EOL
 
 # Set up mDNS
+sysrc nginx_enable="YES"
 sysrc dbus_enable="YES"
 sysrc avahi_daemon_enable="YES"
 rm /usr/local/etc/avahi/services/*.service
@@ -92,7 +90,8 @@ service avahi-daemon start
 service nginx start
 
 # Add plugin detals to info file available in TrueNAS Plugin Additional Info
-echo "Host: 127.0.0.1" > /root/PLUGIN_INFO
+HOSTNAME=`hostname`;
+echo "URL: http://$HOSTNAME.local" > /root/PLUGIN_INFO
 echo "Admin Password: $ADMIN_PASSWORD" >> /root/PLUGIN_INFO
 echo "Database User: $DB_USER" >> /root/PLUGIN_INFO
 echo "Database Password: $DB_PASSWORD" >> /root/PLUGIN_INFO
