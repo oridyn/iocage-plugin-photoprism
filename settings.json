@@ -1,4 +1,5 @@
 {
+	"servicerestart":"service nginx restart",
 	"serviceget": "/usr/local/bin/pluginget",
 	"serviceset": "/usr/local/bin/pluginset",
 	"options": {
