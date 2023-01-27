@@ -1,0 +1,24 @@
+{
+	"serviceget": "/usr/local/bin/pluginget",
+	"serviceset": "/usr/local/bin/pluginset",
+	"options": {
+		"dbname": {
+			"type": "string",
+			"name": "Database Name",
+			"description": "Database to use for PhotoPrism setup",
+			"readonly": true
+		},
+		"dbuser": {
+			"type": "string",
+			"name": "Database Username",
+			"description": "Username to use for PhotoPrism Database setup",
+			"readonly": true
+		},
+		"dbpassword": {
+			"type": "string",
+			"name": "Database Password",
+			"description": "Password to use for PhotoPrism Database setup",
+			"readonly": true
+		}
+	}
+}
