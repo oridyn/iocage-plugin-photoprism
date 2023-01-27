@@ -2,6 +2,12 @@
 	"serviceget": "/usr/local/bin/pluginget",
 	"serviceset": "/usr/local/bin/pluginset",
 	"options": {
+		"adminpassword": {
+			"type": "string",
+			"name": "Admin Password",
+			"description": "Password to use to log in to PhotoPrism",
+			"readonly": true
+		},
 		"dbname": {
 			"type": "string",
 			"name": "Database Name",
