@@ -89,6 +89,7 @@ EOL
 service photoprism start
 service dbus start
 service avahi-daemon start
+service nginx start
 
 # Add plugin detals to info file available in TrueNAS Plugin Additional Info
 echo "Host: 127.0.0.1" > /root/PLUGIN_INFO
