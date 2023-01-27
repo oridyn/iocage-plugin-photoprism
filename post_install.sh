@@ -22,7 +22,7 @@ export LC_ALL=C
 cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1 > /root/db_password
 DB_PASSWORD=`cat /root/db_password`
 cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1 > /root/admin_password
-ADMIN_PASSWORD=`cat /root/db_password`
+ADMIN_PASSWORD=`cat /root/admin_password`
 
 
 
@@ -50,7 +50,7 @@ pkg add https://github.com/psa/libtensorflow1-freebsd-port/releases/download/1.1
 pkg add https://github.com/psa/photoprism-freebsd-port/releases/download/2022-11-18/photoprism-g20221118-FreeBSD-12.3-separatedTensorflow.pkg
 
 sysrc photoprism_enable="YES"
-sysrc photoprism_auth_mode="public"
+# sysrc photoprism_auth_mode="public"
 sysrc photoprism_assetspath="/var/db/photoprism/assets"
 sysrc photoprism_storagepath="/mnt/photos/"
 sysrc photoprism_defaultsyaml="/mnt/photos/options.yml"
