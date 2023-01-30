@@ -24,10 +24,8 @@ DB_PASSWORD=`cat /root/db_password`
 cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1 > /root/admin_password
 ADMIN_PASSWORD=`cat /root/admin_password`
 
-
-
 # Configure the DB
-# Create user and database for Piwigo with unique password
+# Create user and database for PhotoPrism
 DB_USER="photoprism"
 DB="photoprism"
 # Save the config values
