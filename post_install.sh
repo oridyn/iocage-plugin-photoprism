@@ -32,7 +32,7 @@ DB="photoprism"
 echo "$DB" > /root/db_name
 echo "$DB_USER" > /root/db_user
 echo "Database User: $DB_USER"
-echo "Database Password: $DBPASSWORD"
+echo "Database Password: $DB_PASSWORD"
 mysql --user=root <<_EOF_
 CREATE DATABASE ${DB}
 CHARACTER SET = 'utf8mb4'
